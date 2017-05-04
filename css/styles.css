@@ -6,7 +6,8 @@ http://www.bootstrapzero.com
 */
 
 @import url(https://fonts.googleapis.com/css?family=Questrial);
-@import url('https://fonts.googleapis.com/css?family=Megrim|Oxygen');
+@import url('https://fonts.googleapis.com/css?family=Megrim|Oxygen|Poiret+One');
+
 
 html,
 body {
@@ -51,7 +52,7 @@ h1,h3,h4,h5,h6 {
 }
 
 h2{
-    font-family: 'Megrim', 'Questrial', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Poiret One', 'Questrial', 'Helvetica Neue', Arial, sans-serif;
 }
 
 p {
