@@ -63,22 +63,13 @@ p {
 
 footer p{
     color: #68a527;
-    line-height: 0px;
+    line-height:1.2;
     font-size: 14px;
-    margin-bottom:0px;
-    margin-top: 0px;
-
-  
-}
-footer h5{
-    margin-top:0px;
-    margin-bottom:2px;
-}
-footer h2{
-    margin-bottom: 0px;
 }
 
-
+footer h5, a{
+	line-height: 1.2;
+}
 .wide-space {
     letter-spacing: 1.6px;
 }
@@ -134,6 +125,11 @@ footer h2{
 .bottom{
     margin-top:20px;
 }
+
+.hover{
+	margin:10px;
+}
+
 
 section {
     padding: 70px 0;
