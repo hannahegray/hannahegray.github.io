@@ -1,7 +1,6 @@
 /*
 
-Hannah Gray's website theme - Based on a free landing page theme from BootstrapZero
-http://www.bootstrapzero.com
+Hannah Gray's website theme
 
 */
 
@@ -269,10 +268,10 @@ header {
     text-align: center;
     color: #eee;
     width: 100%;
-    /*background-color: #c9c9c9;*/
+   
 }
 
-header:before{
+header:before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -287,7 +286,7 @@ header:before{
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-    -o-background-size: cover;
+   -o-background-size: cover;
 
 }
 
@@ -357,7 +356,6 @@ footer {
         min-height: 600px;
         padding: 100px 0;
     }
-
 }
 
 .form-control {
