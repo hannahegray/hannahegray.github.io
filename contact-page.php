@@ -10,7 +10,7 @@ $sendToName = "Website Contact form"
 $subject = 'New Message from Contact Form';
 
 $smtpHost = 'smtp.gmail.com'; 
-$smtpUsername ="hannah.elaine.gray@gmail.com"; 
+$smtpUsername ='hannah.elaine.gray@gmail.com'; 
 $smtpPassword = 'Graygirl1'; 
 
 $fields = array('name' => 'Name', 'email'=> 'Email', 'phone'=> 'Phone', 'web' => 'Web', 'design' => 'Design','message' => 'Message');
@@ -19,17 +19,18 @@ $okMessage = 'Thank you! I will be in touch soon!';
 $errorMessage = 'There was an error sending your message. Please try again later'; 
 
 
-error_reporting(0);
+error_reporting(E_ALL & ~E_NOTICE);
+
 
 try{
 
-	if(count($_POST==0)) throw new \Exception('Form is empty');
+	if(count($_POST) ==0) throw new \Exception('Form is empty');
 
 	$emailTextHtml = "<h1>You have a new message from your contact form</h1><hr>";
 	$emailTextHtml .= "<table>"; 
 
 	foreach($_POST as $key => $value){
-		if (isset($fiels[$key])){
+		if (isset($fiels[$key]) ){
 			$emailTextHtml .= "<tr><th>$fields[$key]</th><td>$value</td></tr>";
 		}
 	}
@@ -60,24 +61,42 @@ try{
 
 
 	if(!$mail->send()){
-		throw new \Exception('I could not send the email.') .$mail->ErrorInfo);
+		throw new \Exception('I could not send the email.') .$mail->ErrorInfo();
 	}
 
 	$responseArray = array('type' =>'success', 'message' => $okMessage); 
 }
 catch(\Exception $e){
-	$responseArray  = array('type' => 'danger', 'message' => $e->getMessage());
+	$responseArray  = array('type' => 'danger', 'message' => $e->getMessage() );
 }
 
-if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) =='xmlhrrprequest'){
+
+
+/*if ($responseArray['message'] == 'success') {
+
+// success redirect
+
+header('Location: thanks.html');
+
+}
+
+else {
+
+//error redirect
+
+header('Location: index.html');
+
+}
+*/
+
+
+if (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) =='xmlhttprequest'){
 
 	$encoded = json_encode($responseArray);
 
 	header('Content-Type: application/json'); 
-	echo$encoded; 
+	echo $encoded; 
 }
 else{
 	echo $responseArray['message'];
 }
-
-?>
